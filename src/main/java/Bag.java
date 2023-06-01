@@ -74,7 +74,7 @@ public abstract class Bag {
      *       and false otherwise.
      */
     public boolean addItem(String newItem){
-        if(this.contents.length < this.capacity){
+        if(this.numberOfContents < this.capacity){
             this.contents[this.numberOfContents] = newItem;
             this.numberOfContents += 1;
             return true;
@@ -96,12 +96,12 @@ public abstract class Bag {
      * @return
      */
     public String popItem(){
-        int n = this.contents.length-1;
-        if(this.contents.length == 0){
+        int n = this.numberOfContents-1;
+        if(this.numberOfContents == 0){
             return null;
         }
         String toRet = this.contents[n];
-        this.contents[n] = "";
+        this.contents[n] = null;
         this.numberOfContents -= 1;
         return toRet;
     }
